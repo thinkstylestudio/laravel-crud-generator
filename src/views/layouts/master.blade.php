@@ -12,6 +12,8 @@
   <link href="/backend/web/assets/css/weather-icons.min.css" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
         rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.0/css/responsive.dataTables.min.css">
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet">
   <link href="/backend/web/assets/css/beyond.min.css" rel="stylesheet">
   <link href="/backend/web/assets/css/demo.min.css" rel="stylesheet">
