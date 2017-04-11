@@ -19,6 +19,7 @@ class CrudGeneratorServiceProvider extends ServiceProvider
 
         $this->publishes([
 	        __DIR__.'/Templates' => base_path('resources/templates'),
+	        __DIR__.'/Assets' => base_path('public'),
 	    ]);
     }
 
