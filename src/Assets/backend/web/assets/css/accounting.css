@@ -1,0 +1,22 @@
+.page-sidebar .sidebar-menu a{
+    min-height: 38px;
+    height:auto;
+    line-height: 19px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.table-scrollable.over-auto{
+    overflow-x: auto !important;
+}
+.details-tabs{
+    margin-bottom: 20px;
+}
+.space-20{
+    margin-bottom: 20px;
+}
+.input-icon>input.input-sm+[class*="fa-"]{
+    background: linear-gradient(to bottom, #eee 0, #fbfbfb 100%);
+    border: 1px solid #cdcdcd;
+    font-size: 13px;
+    cursor: pointer;
+}
