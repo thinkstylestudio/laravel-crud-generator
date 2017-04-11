@@ -139,7 +139,7 @@ class CrudGeneratorService
     protected function getTypeFromDBType($dbtype) {
         if(str_contains($dbtype, 'varchar')) { return 'text'; }
         if(str_contains($dbtype, 'int') || str_contains($dbtype, 'float')) { return 'number'; }
-        if(str_contains($dbtype, 'date')) { return 'date'; }
+        if(str_contains($dbtype, 'date') || str_contains($dbtype, 'time')) { return 'date'; }
         return 'unknown';
     }
 
