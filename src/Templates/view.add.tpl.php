@@ -109,7 +109,8 @@
                     <div class="form-group has-feedback">
                         <div class="col-lg-12 text-right">
                             <button type="submit" class="btn btn-palegreen">Lưu lại</button>
-                            <button type="button" class="btn btn-info">Xem trước</button>
+                            <button type="submit" class="btn btn-palegreen" name="wgi_action" value="SAVE_CREATE">Lưu và thêm mới</button>
+                            <button type="button" class="btn btn-info" onclick="preview()">Xem trước</button>
                             <a href="{{ url('/[[route_path]]') }}" class="btn btn-danger">Hủy</a>
                         </div>
                     </div>

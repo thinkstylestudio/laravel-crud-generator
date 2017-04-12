@@ -106,19 +106,20 @@ class [[controller_name]]Controller extends Controller
 	    
 
 	    [[foreach:columns]]
-		
 		[[if:i.name=='id']]
 	    $[[model_singular]]->[[i.name]] = $request->[[i.name]]?:0;
 		[[endif]]
 		[[if:i.name!='id']]
 	    $[[model_singular]]->[[i.name]] = $request->[[i.name]];
 		[[endif]]
-
 	    [[endforeach]]
 	    //$[[model_singular]]->user_id = $request->user()->id;
 	    $[[model_singular]]->save();
-
-	    return redirect('/[[route_path]]');
+        if ($request->input('wgi_action') == 'SAVE_CREATE') {
+            return redirect('/[[route_path]]/create');
+        } else {
+            return redirect('/[[route_path]]');
+        }
 
 	}
 
