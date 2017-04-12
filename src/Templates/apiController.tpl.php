@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Response;
 
 use [[appns]][[model_uc]];
 
-class [[controller_name]]Controller extends Controller
+class [[controller_name]]ApiController extends Controller
 {
     /**
      * Display a listing of the resource.
