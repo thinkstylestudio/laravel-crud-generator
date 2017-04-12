@@ -192,7 +192,7 @@
         <!-- Page Header -->
         <div class="page-header position-relative">
           <div class="header-title">
-            <h1>{{ ucfirst('[[model_plural]]') }}</h1>
+            <h1>@yield('page_tile')</h1>
           </div>
           <!--Header Buttons-->
           <div class="header-buttons">

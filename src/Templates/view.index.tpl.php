@@ -1,5 +1,9 @@
 @extends('[[custom_master]]')
 
+@section('page_title')
+{{ ucfirst('[[model_plural]]') }}
+@endsection
+
 @section('content')
 
 <div class="widget-body">
@@ -44,8 +48,7 @@
           [[foreach:columns]]
           <th>[[i.display]]</th>
           [[endforeach]]
-          <th style="width:50px"></th>
-          <th style="width:50px"></th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -81,15 +84,10 @@
                     },
                     {
                         "render": function ( data, type, row ) {
-                            return '<a href="{{ url('/[[route_path]]') }}/'+row[0]+'/edit" class="btn btn-default">Update</a>';
+                            return '<a href="{{ url('/[[route_path]]') }}/'+row[0]+'/edit" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Edit</a>' +
+                          '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Delete</a>';
                         },
                         "targets": [[num_columns]]
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            return '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger">Delete</a>';
-                        },
-                        "targets": [[num_columns]]+1
                     },
                 ]
             });
