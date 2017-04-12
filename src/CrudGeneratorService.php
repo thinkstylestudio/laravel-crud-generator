@@ -159,7 +159,7 @@ class CrudGeneratorService
 
     protected function createModel($modelname, $prefix, $table_name) {
 
-        Artisan::call('make:model', ['name' => $modelname]);
+        Artisan::call('make:model', ['name' => 'Models/' . $modelname]);
         
 
         if($table_name) {
