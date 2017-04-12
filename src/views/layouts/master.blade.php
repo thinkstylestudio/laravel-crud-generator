@@ -5,23 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" type="image/x-icon" href="/backend/web/assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url('/backend/web/assets/img/favicon.png') }}">
   <title>Test</title>
-  <link href="/backend/web/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/weather-icons.min.css" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/weather-icons.min.css') }}" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
         rel="stylesheet">
-  <link href="/backend/web/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.0/css/responsive.dataTables.min.css">
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet">
-  <link href="/backend/web/assets/css/beyond.min.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/demo.min.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/typicons.min.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/animate.min.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/custome.css" rel="stylesheet">
-  <link href="/backend/web/assets/css/accounting.css" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/beyond.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/demo.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/typicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/custome.css') }}" rel="stylesheet">
+  <link href="{{ url('/backend/web/assets/css/accounting.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -30,9 +30,9 @@
   <div class="navbar-inner">
     <div class="navbar-container">
       <div class="navbar-header pull-left">
-        <a href="/backend/" class="navbar-brand">
+        <a href="{{ url('/backend/') }}" class="navbar-brand">
           <small>
-            <img src="/backend/web/assets/img/logo.png"/>
+            <img src="{{ url('/backend/web/assets/img/logo.png') }}"/>
           </small>
         </a>
       </div>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="pull-left wrap-search">
-        <form action="/backend/search/index">
+        <form action="{{ url('/backend/search/index') }}">
           <input type="text"
                  class="form-control"
                  style="margin-top: 5px; margin-left: 35px; width: 350px;"
@@ -102,7 +102,7 @@
             <li>
               <a class="login-area dropdown-toggle" data-toggle="dropdown">
                 <div class="avatar" title="View your public profile">
-                  <img src="/backend/web/assets/img/anonymous.png">
+                  <img src="{{ url('/backend/web/assets/img/anonymous.png') }}">
                 </div>
                 <section>
                   <h2><span class="profile"><span>Administrator</span></span></h2>
@@ -115,19 +115,19 @@
                 <!--Avatar Area-->
                 <li>
                   <div class="avatar-area">
-                    <img src="/backend/web/assets/img/anonymous.png" class="avatar">
+                    <img src="{{ url('/backend/web/assets/img/anonymous.png') }}" class="avatar">
                     <span class="caption">Change Photo</span>
                   </div>
                 </li>
                 <!--Avatar Area-->
                 <li class="edit">
-                  <a href="/backend/sign-in/profile" class="pull-left">Profile</a>
-                  <a href="/backend/sign-in/profile" class="pull-right">Setting</a>
+                  <a href="{{ url('/backend/sign-in/profile') }}" class="pull-left">Profile</a>
+                  <a href="{{ url('/backend/sign-in/profile') }}" class="pull-right">Setting</a>
                 </li>
 
                 <!--/Theme Selector Area-->
                 <li class="dropdown-footer">
-                  <a class="" href="/backend/sign-in/logout" data-method="post">Đăng xuất</a></li>
+                  <a class="" href="{{ url('/backend/sign-in/logout') }}" data-method="post">Đăng xuất</a></li>
               </ul>
               <!--/Login Area Dropdown-->
             </li>
@@ -137,7 +137,7 @@
             <!-- Settings -->
           </ul>
           <div class="setting">
-            <a id="btn-setting1" title="Setting" href="/backend/system/key-storage">
+            <a id="btn-setting1" title="Setting" href="{{ url('/backend/system/key-storage') }}">
               <i class="icon glyphicon glyphicon-cog"></i>
             </a>
 
@@ -167,24 +167,24 @@
           <ul class="breadcrumb">
             <li>
               <i class="fa fa-home"></i>
-              <a href="/backend/">Trang chủ</a>
+              <a href="{{ url('/backend/') }}">Trang chủ</a>
             </li>
           </ul>
 
           <div class=" pull-right">
-            <a class="btn btn-default" href="/backend/repair/ticket/create">
+            <a class="btn btn-default" href="{{ url('/backend/repair/ticket/create') }}">
               <i class="fa fa-plus withe"></i>Vào xưởng
             </a>
 
-            <a class="btn btn-default" href="/backend/repair/invoice/create">
+            <a class="btn btn-default" href="{{ url('/backend/repair/invoice/create') }}">
               <i class="fa fa-plus withe"></i>Lập báo giá
             </a>
 
-            <a class="btn btn-default" href="/backend/repair/repair-command/create">
+            <a class="btn btn-default" href="{{ url('/backend/repair/repair-command/create') }}">
               <i class="fa fa-plus withe"></i>Lập lệnh sửa chữa
             </a>
 
-            <a class="btn btn-default" href="/backend/repair/costing/create">
+            <a class="btn btn-default" href="{{ url('/backend/repair/costing/create') }}">
               <i class="fa fa-plus withe"></i>Hạch toán
             </a>
           </div>
@@ -225,21 +225,21 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="/backend/web/assets/js/skins.min.js"></script>
-  <script src="/backend/web/assets/js/bootstrap.min.js"></script>
-  <script src="/backend/web/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
-  <script src="/backend/web/assets/js/datetime/moment-with-locales.min.js"></script>
-  <script src="/backend/web/assets/js/datetime/bootstrap-datetimepicker.min.js"></script>
-  <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.0.0/js/dataTables.responsive.min.js"></script>
-  <script src="/backend/web/assets/js/datetime/bootstrap-datepicker.js"></script>
-  <script src="/backend/web/assets/js/jquery-validation/jquery.validate.min.js"></script>
-  <script src="/backend/web/assets/js/beyond.js"></script>
-  <script src="/backend/web/assets/js/libs/bootbox.min.js"></script>
-  <script src="/backend/web/assets/js/common.js"></script>
-  <script src="/backend/web/assets/js/data-helper.js"></script>
-  <script src="/backend/web/assets/js/helper.js"></script>
+  <script src="{{ url('/backend/web/assets/js/skins.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/slimscroll/jquery.slimscroll.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/datetime/moment-with-locales.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/datetime/bootstrap-datetimepicker.min.js') }}"></script>
+  <script src="{{ url('//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js') }}"></script>
+  <script src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js') }}"></script>
+  <script src="https://cdn.datatables.net/responsive/2.0.0/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/datetime/bootstrap-datepicker.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/jquery-validation/jquery.validate.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/beyond.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/libs/bootbox.min.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/common.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/data-helper.js') }}"></script>
+  <script src="{{ url('/backend/web/assets/js/helper.js') }}"></script>
   <script type="text/javascript">
     var pre = function (c, name) {
       return $(c).attr("pre-" + name);
