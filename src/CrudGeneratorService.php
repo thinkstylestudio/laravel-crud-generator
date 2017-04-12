@@ -45,7 +45,7 @@ class CrudGeneratorService
             'model_plural' => strtolower(str_plural($modelname)),
             'tablename' => $this->tableName ?: strtolower(str_plural($this->modelName)),
             'prefix' => $this->prefix,
-            'custom_master' => $this->layout ?: 'crudgenerator::layouts.master',
+            'custom_master' => $this->layout ?: 'layouts.master',
             'controller_name' => $this->controllerName,
             'view_folder' => $this->viewFolderName,
             'route_path' => $this->viewFolderName,
@@ -82,10 +82,6 @@ class CrudGeneratorService
         $filegenerator->path = app_path().'/Http/Controllers/'.$this->controllerName.'Controller.php';
         $filegenerator->Generate();
 
-        $filegenerator->templateName = 'apiController';
-        $filegenerator->path = app_path().'/Http/Controllers/'.$this->controllerName.'ApiController.php';
-        $filegenerator->Generate();
-
         $filegenerator->templateName = 'view.add';
         $filegenerator->path = base_path().'/resources/views/'.$this->viewFolderName.'/add.blade.php';
         $filegenerator->Generate();
@@ -108,7 +104,7 @@ class CrudGeneratorService
         $this->appendToEndOfFile(base_path().'/routes/web.php', "\n".$addroute, 0, true);
         $this->output->info('Adding Route: '.$addroute );
 
-        $addroute = 'Route::resource(\'/'.$this->viewFolderName.'\', \''.$this->controllerName.'ApiController\');';
+        $addroute = 'Route::resource(\'/'.$this->viewFolderName.'\', \''.$this->controllerName.'Controller\');';
         $this->appendToEndOfFile(base_path().'/routes/api.php', "\n".$addroute, 0, true);
         $this->output->info('Adding Api Route: '.$addroute );
 

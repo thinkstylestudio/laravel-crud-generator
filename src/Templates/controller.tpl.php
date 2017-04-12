@@ -21,7 +21,7 @@ class [[controller_name]]Controller extends Controller
 	{
 	    $models = new [[model_uc]]();
 	    if ($request->input('keyword')) {
-            $models = $models->where('name', 'LIKE', '%' . $request->input('keyword') . '%');
+            $models = $models->where('[[first_column_nonid]]', 'LIKE', '%' . $request->input('keyword') . '%');
         }
         if ($request->input('from_date') && Schema::hasColumn((new [[model_uc]]())->getTable(), 'ngay_tao')) {
             $fromDate = str_replace('/', '-', $request->input('from_date'));
@@ -107,8 +107,110 @@ class [[controller_name]]Controller extends Controller
 
 		$[[model_singular]]->delete();
 		return "OK";
-	    
 	}
+
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function apiIndex()
+    {
+        $[[model_singular]] = [[model_uc]]::all();
+        return Response::json([
+            'status' => true,
+            'data' => $[[model_singular]]
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function apiStore(Request $request)
+    {
+        return $this->update($request);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function apiShow($id)
+    {
+        $[[model_singular]] = [[model_uc]]::findOrFail($id);
+        return Response::json([
+            'status' => true,
+            'data' => $[[model_singular]]
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int|bool  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function apiUpdate(Request $request, $id = false)
+    {
+        //
+        /*$this->validate($request, [
+            'name' => 'required|max:255',
+        ]);*/
+        $[[model_singular]] = null;
+        if($id > 0) { $[[model_singular]] = [[model_uc]]::findOrFail($id); }
+        else {
+            $[[model_singular]] = new [[model_uc]];
+        }
+        [[foreach:columns]]
+        [[if:i.name=='id']]
+        $[[model_singular]]->[[i.name]] = $request->[[i.name]]?:0;
+        [[endif]]
+        [[if:i.name!='id']]
+        $[[model_singular]]->[[i.name]] = $request->[[i.name]];
+        [[endif]]
+        [[endforeach]]
+
+        try {
+            $[[model_singular]]->save();
+        } catch (QueryException $exception) {
+            return Response::json([
+                'status' => false,
+                'message' => $exception->getMessage()
+            ]);
+        }
+        return Response::json([
+            'status' => true,
+            'data' => $[[model_singular]]
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function apiDestroy($id)
+    {
+        $[[model_singular]] = [[model_uc]]::findOrFail($id);
+        try {
+            $[[model_singular]]->delete();
+        } catch (QueryException $exception) {
+            return Response::json([
+                'status' => false,
+                'message' => $exception->getMessage()
+            ]);
+        }
+        return Response::json([
+            'status' => true
+        ]);
+    }
 
 	
 }
