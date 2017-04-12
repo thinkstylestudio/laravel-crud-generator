@@ -119,7 +119,7 @@ class CrudGeneratorService
                                 . "where table_name = '" . $tablename . "'");
                 break;
             default:
-                $cols = DB::select("show columns from " . $tablename);
+                $cols = DB::select("show full columns from " . $tablename);
                 break;
         }
 
@@ -130,7 +130,7 @@ class CrudGeneratorService
             $cadd = [];
             $cadd['name'] = $field;
             $cadd['type'] = $field == 'id' ? 'id' : $this->getTypeFromDBType($type);
-            $cadd['display'] = ucwords(str_replace('_', ' ', $field));
+            $cadd['display'] = strlen($c->Comment)?ucfirst($c->Comment):ucwords(str_replace('_', ' ', $field));
             $ret[] = $cadd;
         }
         return $ret;
