@@ -94,6 +94,7 @@
                                            pre-show="true" pre-label="[[i.display]]"
                                            pre-val="{{$model['[[i.name]]'] or ''}}"
                                            pre-change-to="#[[i.name]]" aria-required="true"
+                                           required="[[i.required]]"
                                            type="text" class="form-control input-sm">
                                 </span>
                             </div>
@@ -118,4 +119,12 @@
     </form>
 
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('form').validate();
+  });
+</script>
 @endsection

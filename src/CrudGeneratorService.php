@@ -131,6 +131,11 @@ class CrudGeneratorService
             $cadd['name'] = $field;
             $cadd['type'] = $field == 'id' ? 'id' : $this->getTypeFromDBType($type);
             $cadd['display'] = strlen($c->Comment)?ucfirst($c->Comment):ucwords(str_replace('_', ' ', $field));
+            $cadd['rules'] = '';
+            $cadd['required'] = ($c->Null == 'YES')?true:false;
+            if ($c->Null == 'YES') {
+                $cadd['rules'] .= 'required';
+            }
             $ret[] = $cadd;
         }
         return $ret;
