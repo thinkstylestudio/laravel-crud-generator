@@ -43,7 +43,11 @@
                             <div class="form-group">
                                 <label for="[[i.name]]">[[i.display]]</label>
                                 <span class="input-icon icon-right">
-                                    <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}" type="text" class="form-control input-sm">
+                                    <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}"
+                                           pre-show="true" pre-label="[[i.display]]"
+                                           pre-val="{{$model['[[i.name]]'] or ''}}"
+                                           pre-change-to="#[[i.name]]" aria-required="true"
+                                           type="text" class="form-control input-sm">
                                 </span>
                             </div>
                         </div>
@@ -53,7 +57,11 @@
                             <div class="form-group">
                                 <label for="[[i.name]]">[[i.display]]</label>
                                 <span class="input-icon icon-right">
-                                    <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}" type="number" class="form-control input-sm">
+                                    <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}"
+                                           pre-show="true" pre-label="[[i.display]]"
+                                           pre-val="{{$model['[[i.name]]'] or ''}}"
+                                           pre-change-to="#[[i.name]]" aria-required="true"
+                                           type="number" class="form-control input-sm">
                                 </span>
                             </div>
                         </div>
@@ -64,7 +72,11 @@
                                 <label for="[[i.name]]">[[i.display]]</label>
                                 <span class="input-icon icon-right">
                                     <div class="input-group" style="position: relative">
-                                        <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}" type="text" class="form-control input-sm">
+                                        <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}"
+                                               pre-show="true" pre-label="[[i.display]]"
+                                               pre-val="{{$model['[[i.name]]'] or ''}}"
+                                               pre-change-to="#[[i.name]]" aria-required="true"
+                                               type="text" class="form-control input-sm">
                                         <span class="input-group-addon" style="cursor: pointer;">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -78,7 +90,11 @@
                             <div class="form-group">
                                 <label for="[[i.name]]">[[i.display]]</label>
                                 <span class="input-icon icon-right">
-                                    <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}" type="text" class="form-control input-sm">
+                                    <input id="[[i.name]]" name="[[i.name]]" value="{{$model['[[i.name]]'] or ''}}"
+                                           pre-show="true" pre-label="[[i.display]]"
+                                           pre-val="{{$model['[[i.name]]'] or ''}}"
+                                           pre-change-to="#[[i.name]]" aria-required="true"
+                                           type="text" class="form-control input-sm">
                                 </span>
                             </div>
                         </div>
