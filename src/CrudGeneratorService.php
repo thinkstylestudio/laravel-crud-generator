@@ -124,19 +124,22 @@ class CrudGeneratorService
         }
 
         $ret = [];
+        $ignoreCols = ['created_at', 'updated_at', 'created_by', 'updated_by'];
         foreach ($cols as $c) {
             $field = isset($c->Field) ? $c->Field : $c->field;
-            $type = isset($c->Type) ? $c->Type : $c->type;
-            $cadd = [];
-            $cadd['name'] = $field;
-            $cadd['type'] = $field == 'id' ? 'id' : $this->getTypeFromDBType($type);
-            $cadd['display'] = strlen($c->Comment)?ucfirst($c->Comment):ucwords(str_replace('_', ' ', $field));
-            $cadd['rules'] = '';
-            $cadd['required'] = ($c->Null == 'YES')?true:false;
-            if ($c->Null == 'YES') {
-                $cadd['rules'] .= 'required';
+            if (!in_array($field, $ignoreCols)) {
+                $type = isset($c->Type) ? $c->Type : $c->type;
+                $cadd = [];
+                $cadd['name'] = $field;
+                $cadd['type'] = $field == 'id' ? 'id' : $this->getTypeFromDBType($type);
+                $cadd['display'] = strlen($c->Comment) ? ucfirst($c->Comment) : ucwords(str_replace('_', ' ', $field));
+                $cadd['rules'] = '';
+                $cadd['required'] = ($c->Null == 'YES') ? true : false;
+                if ($c->Null == 'YES') {
+                    $cadd['rules'] .= 'required';
+                }
+                $ret[] = $cadd;
             }
-            $ret[] = $cadd;
         }
         return $ret;
     }
