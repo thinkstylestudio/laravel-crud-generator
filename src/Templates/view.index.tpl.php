@@ -52,6 +52,25 @@
         </tr>
         </thead>
         <tbody>
+          @foreach ($models as $model)
+          <tr>
+            [[foreach:columns]]
+            <td>{{ $model->[[i.name]] }}</td>
+            [[endforeach]]
+            <td>
+                <a href="{{ url('/users/' . $model->id . '/edit') }}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Sửa</a>
+                <a href="#" onclick="return doDelete({{ $model->id }})" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Xóa</a>
+            </td>
+          </tr>
+          @endforeach
+          <tr class="lpagination">
+            <td colspan="2" class="noBorder">
+                <div class="summary">Trình bày <b>{{ $models->firstItem() }}-{{ $models->lastItem() }}</b> trong số <b>{{ $models->total() }}</b> mục.</div>
+            </td>
+            <td colspan="13">
+                {{ $models->links() }}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
