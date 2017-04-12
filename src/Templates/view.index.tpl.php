@@ -13,7 +13,7 @@
         <div class="form-group">
           <span class="input-icon icon-right">
             <div id="w1" style="position: relative">
-              <input type="text" id="input_from" class="form-control date-picker" name="from_date" placeholder="Từ ngày">
+              <input type="text" value="{{ @$_GET['from_date'] }}" id="input_from" class="form-control date-picker-wgi" name="from_date" placeholder="Từ ngày">
             </div>
             <i class="fa fa-calendar"></i>
           </span>
@@ -21,14 +21,14 @@
         <div class="form-group">
           <span class="input-icon icon-right">
             <div id="w1" style="position: relative">
-              <input type="text" id="input_from" class="form-control date-picker" name="from_date" placeholder="Đến ngày">
+              <input type="text" value="{{ @$_GET['to_date'] }}" id="input_to" class="form-control date-picker-wgi" name="to_date" placeholder="Đến ngày">
             </div>
             <i class="fa fa-calendar"></i>
           </span>
         </div>
         <div class="form-group">
             <span class="input-icon icon-right">
-              <input type="text" class="form-control input-sm" placeholder="Thông tin cần tìm">
+              <input type="text" value="{{ @$_GET['keyword'] }}" class="form-control" name="keyword" placeholder="Thông tin cần tìm">
             </span>
         </div>
         <button type="submit" class="btn btn-info">Tìm kiếm</button>

@@ -50,13 +50,16 @@ class [[controller_name]]Controller extends Controller
 
 	public function grid(Request $request)
 	{
-		$len = $_GET['length'];
-		$start = $_GET['start'];
+		$len = $request->input('length');
+		$start = $request->input('start');
+		$fromDate = ($request->input('from_date'))?date('Y-m-d H:i:s', $request->input('from_date')):false;
+		$toDate = ($request->input('to_date'))?date('Y-m-d H:i:s', $request->input('to_date')):false;
+		$keyword = $request->input('keyword');
 
 		$select = "SELECT *,1,2 ";
 		$presql = " FROM [[prefix]][[tablename]] a ";
-		if($_GET['search']['value']) {	
-			$presql .= " WHERE [[first_column_nonid]] LIKE '%".$_GET['search']['value']."%' ";
+		if($_GET['search']['value']) {
+			$presql .= " WHERE [[first_column_nonid]] LIKE '%".$keyword."%' ";
 		}
 		
 		$presql .= "  ";
