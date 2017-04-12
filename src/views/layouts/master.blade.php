@@ -233,7 +233,6 @@
   <script src="/backend/web/assets/js/datetime/bootstrap-datepicker.js"></script>
   <script src="/backend/web/assets/js/beyond.js"></script>
   <script src="/backend/web/assets/js/libs/bootbox.min.js"></script>
-  <script src="/backend/web/assets/js/libs/confirm.js"></script>
   <script src="/backend/web/assets/js/common.js"></script>
   <script src="/backend/web/assets/js/data-helper.js"></script>
   <script src="/backend/web/assets/js/helper.js"></script>
