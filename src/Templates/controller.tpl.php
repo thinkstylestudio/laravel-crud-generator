@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use [[appns]]Http\Requests;
 use [[appns]]Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use [[appns]][[model_uc]];
 
@@ -113,7 +114,12 @@ class [[controller_name]]Controller extends Controller
 	    $[[model_singular]]->[[i.name]] = $request->[[i.name]];
 		[[endif]]
 	    [[endforeach]]
-	    //$[[model_singular]]->user_id = $request->user()->id;
+	    if ($request->id > 0) {
+            $[[model_singular]]->nguoi_tao = Auth::user()->id;
+            $[[model_singular]]->ngay_tao = date('Y-m-d H:i:s', time());
+        }
+        $[[model_singular]]->nguoi_sua = Auth::user()->id;
+        $[[model_singular]]->ngay_sua = date('Y-m-d H:i:s', time());
 	    $[[model_singular]]->save();
         if ($request->input('wgi_action') == 'SAVE_CREATE') {
             return redirect('/[[route_path]]/create');
