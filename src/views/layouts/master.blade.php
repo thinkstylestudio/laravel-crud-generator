@@ -228,6 +228,7 @@
   <script src="/backend/web/assets/js/skins.min.js"></script>
   <script src="/backend/web/assets/js/bootstrap.min.js"></script>
   <script src="/backend/web/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/backend/web/assets/js/datetime/moment-with-locales.min.js"></script>
   <script src="/backend/web/assets/js/datetime/bootstrap-datetimepicker.min.js"></script>
   <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
