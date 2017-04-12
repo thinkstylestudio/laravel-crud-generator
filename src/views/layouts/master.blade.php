@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" type="iimage/x-icon" href="/backend/web/assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/backend/web/assets/img/favicon.png">
   <title>Test</title>
   <link href="/backend/web/assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="/backend/web/assets/css/font-awesome.min.css" rel="stylesheet">
@@ -154,10 +154,10 @@
     <div class="page-container">
 
       <!-- Page Sidebar -->
-      @include('../partials/sidebar')
+      @include('crudgenerator::partials/sidebar')
       <!-- /Page Sidebar -->
       <!-- Chat Bar -->
-      @include('../partials/chatbar')
+      @include('crudgenerator::partials/chatbar')
       <!-- /Chat Bar -->
       <!-- Page Content -->
       <div class="page-content">
