@@ -12,6 +12,7 @@
   <link href="/backend/web/assets/css/weather-icons.min.css" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
         rel="stylesheet">
+  <link href="/backend/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.0/css/responsive.dataTables.min.css">
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet">
@@ -227,6 +228,7 @@
   <script src="/backend/web/assets/js/skins.min.js"></script>
   <script src="/backend/web/assets/js/bootstrap.min.js"></script>
   <script src="/backend/web/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/backend/web/assets/js/datetime/bootstrap-datetimepicker.min.js"></script>
   <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.0.0/js/dataTables.responsive.min.js"></script>
@@ -270,6 +272,14 @@
         });
 
       });
+      if ($('.date-picker-wgi').length) {
+        $('.date-picker-wgi').datetimepicker({
+          "useCurrent": true,
+          "locale": "vi",
+          "format": "DD/MM/YYYY",
+          "allowInputToggle": true
+        })
+      }
     });
   </script>
 

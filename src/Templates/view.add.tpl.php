@@ -76,7 +76,7 @@
                                                pre-show="true" pre-label="[[i.display]]"
                                                pre-val="{{$model['[[i.name]]'] or ''}}"
                                                pre-change-to="#[[i.name]]" aria-required="true"
-                                               type="text" class="form-control input-sm">
+                                               type="text" class="form-control input-sm date-picker-wgi">
                                         <span class="input-group-addon" style="cursor: pointer;">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
