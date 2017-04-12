@@ -83,34 +83,6 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var theGrid = null;
-        $(document).ready(function(){
-            theGrid = $('#thegrid').DataTable({
-                "bFilter": false,
-                "bInfo": false,
-                "bLengthChange" : false,
-                "processing": true,
-                "serverSide": true,
-                "ordering": true,
-                "responsive": true,
-                "ajax": "{{url('[[route_path]]/grid')}}",
-                "columnDefs": [
-                    {
-                        "render": function ( data, type, row ) {
-                            return '<a href="{{ url('/[[route_path]]') }}/'+row[0]+'">'+data+'</a>';
-                        },
-                        "targets": 1
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            return '<a href="{{ url('/[[route_path]]') }}/'+row[0]+'/edit" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Edit</a>' +
-                          '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Delete</a>';
-                        },
-                        "targets": [[num_columns]]
-                    },
-                ]
-            });
-        });
         function doDelete(id) {
             if(confirm('You really want to delete this record?')) {
                $.ajax({ url: '{{ url('/[[route_path]]') }}/' + id, type: 'DELETE'}).success(function() {

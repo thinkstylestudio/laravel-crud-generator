@@ -82,11 +82,19 @@ class [[controller_name]]Controller extends Controller
 		[[endif]]
 	    [[endforeach]]
 	    if ($request->id > 0) {
-            $[[model_singular]]->nguoi_tao = Auth::user()->id;
-            $[[model_singular]]->ngay_tao = date('Y-m-d H:i:s', time());
+	        if (Schema::hasColumn((new [[model_uc]]())->getTable(), 'nguoi_tao')) {
+                $[[model_singular]]->nguoi_tao = isset(Auth::user()->id)?Auth::user()->id:null;
+            }
+            if (Schema::hasColumn((new [[model_uc]]())->getTable(), 'ngay_tao')) {
+                $[[model_singular]]->ngay_tao = date('Y-m-d H:i:s', time());
+            }
         }
-        $[[model_singular]]->nguoi_sua = Auth::user()->id;
-        $[[model_singular]]->ngay_sua = date('Y-m-d H:i:s', time());
+        if (Schema::hasColumn((new [[model_uc]]())->getTable(), 'nguoi_sua')) {
+            $[[model_singular]]->nguoi_sua = isset(Auth::user()->id)?Auth::user()->id:null;
+        }
+        if (Schema::hasColumn((new [[model_uc]]())->getTable(), 'nguoi_sua')) {
+            $[[model_singular]]->nguoi_sua = date('Y-m-d H:i:s', time());
+        }
 	    $[[model_singular]]->save();
         if ($request->input('wgi_action') == 'SAVE_CREATE') {
             return redirect('/[[route_path]]/create');
